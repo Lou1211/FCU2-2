@@ -56,9 +56,11 @@ public class Main1 extends JFrame {
                     if (time % 2 == 0) {
                         b00.setText("O");
                         wincheck[0][0] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b00.setText("X");
                         wincheck[0][0] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag00 = false;
@@ -72,9 +74,11 @@ public class Main1 extends JFrame {
                     if (time % 2 == 0) {
                         b01.setText("O");
                         wincheck[0][1] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b01.setText("X");
                         wincheck[0][1] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag01 = false;
@@ -88,9 +92,11 @@ public class Main1 extends JFrame {
                     if (time % 2 == 0) {
                         b02.setText("O");
                         wincheck[0][2] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b02.setText("X");
                         wincheck[0][2] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag02 = false;
@@ -104,9 +110,11 @@ public class Main1 extends JFrame {
                     if (time % 2 == 0) {
                         b10.setText("O");
                         wincheck[1][0] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b10.setText("X");
                         wincheck[1][0] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag10 = false;
@@ -119,10 +127,12 @@ public class Main1 extends JFrame {
                 if (Flag11) {
                     if (time % 2 == 0) {
                         b11.setText("O");
-                        wincheck[1][0] = 1;
+                        wincheck[1][1] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b11.setText("X");
                         wincheck[1][1] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag11 = false;
@@ -136,9 +146,11 @@ public class Main1 extends JFrame {
                     if (time % 2 == 0) {
                         b12.setText("O");
                         wincheck[1][2] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b12.setText("X");
                         wincheck[1][2] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag12 = false;
@@ -152,9 +164,11 @@ public class Main1 extends JFrame {
                     if (time % 2 == 0) {
                         b20.setText("O");
                         wincheck[2][0] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b20.setText("X");
                         wincheck[2][0] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag20 = false;
@@ -168,9 +182,11 @@ public class Main1 extends JFrame {
                     if (time % 2 == 0) {
                         b21.setText("O");
                         wincheck[2][1] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b21.setText("X");
-                        wincheck[2][0] = 2;
+                        wincheck[2][1] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag21 = false;
@@ -184,30 +200,17 @@ public class Main1 extends JFrame {
                     if (time % 2 == 0) {
                         b22.setText("O");
                         wincheck[2][2] = 1;
+                        Wincheck(wincheck);
                     } else {
                         b22.setText("X");
                         wincheck[2][2] = 2;
+                        Wincheck(wincheck);
                     }
                     time++;
                     Flag22 = false;
                 }
             }
         });
-
-        while (time >= 4) {
-            for (int i1 = 0; i1 <= 2; i1++) {
-                    if((wincheck[i1][0]==wincheck[i1+1][1]&&wincheck[i1][0]==wincheck[i1+2][2])||(wincheck[0][i1]==wincheck[1][i1+1]&&wincheck[0][i1]==wincheck[2][i1+2])){
-                        if(wincheck[i1][0]==1||wincheck[0][i1]==1)
-                        {
-                            JOptionPane.showMessageDialog(Main1.this, "Player 1 Win");
-                        }
-                        else if(wincheck[i1][0]==2||wincheck[0][i1]==2)
-                        {
-                            JOptionPane.showMessageDialog(Main1.this, "Player 2 Win");
-                        }
-                    }
-            }
-        }
 
         win.add(b00);
         win.add(b01);
@@ -219,5 +222,27 @@ public class Main1 extends JFrame {
         win.add(b21);
         win.add(b22);
 
+    }
+
+    public void Wincheck(int wincheck[][]) {
+        if (time >= 4) {
+            for (int i1 = 0; i1 <= 2; i1++) {
+                if ((wincheck[i1][0] == wincheck[i1][1] && wincheck[i1][0] == wincheck[i1][2])
+                        || (wincheck[0][i1] == wincheck[1][i1] && wincheck[0][i1] == wincheck[2][i1])) {
+                    if (wincheck[i1][0] == 1 || wincheck[0][i1] == 1) {
+                        JOptionPane.showMessageDialog(Main1.this, "Player 1 Win");
+                    } else if (wincheck[i1][0] == 2 || wincheck[0][i1] == 2) {
+                        JOptionPane.showMessageDialog(Main1.this, "Player 2 Win");
+                    }
+                }
+            }
+            if((wincheck[0][0] == wincheck[1][1] && wincheck[0][0] == wincheck[2][2])||(wincheck[2][0] == wincheck[1][1] && wincheck[2][0] == wincheck[0][2])){
+                if (wincheck[1][1] == 1 ) {
+                    JOptionPane.showMessageDialog(Main1.this, "Player 1 Win");
+                } else if (wincheck[1][1] == 2 ) {
+                    JOptionPane.showMessageDialog(Main1.this, "Player 2 Win");
+                }
+            }
+        }
     }
 }
