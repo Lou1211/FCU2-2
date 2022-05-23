@@ -1,7 +1,7 @@
 public class Q {
     public static void main(String[] args)
     {
-        E cp = new E();
-       cp.setVisible(true);
+        Q2 win = new Q2();
+       win.setVisible(true);
     }
 }
