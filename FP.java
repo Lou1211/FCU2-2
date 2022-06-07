@@ -1,7 +1,7 @@
 public class FP {
     public static void main(String[] args)
     {
-        FPMain win = new FPMain();
+        FP1 win = new FP1();
        win.setVisible(true);
     }
 }
